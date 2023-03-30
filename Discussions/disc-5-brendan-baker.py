@@ -93,19 +93,36 @@ class NaryHeap:
         '''
         Prints the heap in a tree format
         '''
-        return(self.printString())
-    
-    def printString(self):
-        return(str(self.heapList))
+        def build_tree_string(index):
+            if index > self.currentSize: # Base condition
+                return "[None]"
+
+            first_child_index = index * self.branching_factor - (self.branching_factor - 2) # Find the first child index
+            children = []
+            for j in range(self.branching_factor):
+                current_child_index = first_child_index + j # Find the current child index
+                if current_child_index <= self.currentSize: # If the current child index is within the heap
+                    child_tree_string = build_tree_string(current_child_index) # Recursively build the child tree string
+                    children.append(child_tree_string)
+
+            return f"[{self.heapList[index]}{''.join(children)}]"
+
+        return build_tree_string(1)
+            
+            
 
 
 if __name__ == '__main__':
-    bh = NaryHeap()
-    bh.buildHeap([9,5,6,2,3])
+    nh = NaryHeap(3)
+    nh.buildHeap([9,5,6,2,3,1,4,7,8,83])
 
-    print(bh)
-    print(bh.delMin())
-    print(bh.delMin())
-    print(bh.delMin())
-    print(bh.delMin())
-    print(bh.delMin())
+    print(nh)
+    print(nh.delMin())
+    print(nh.delMin())
+    print(nh.delMin())
+    print(nh.delMin())
+    print(nh.delMin())
+    
+    nh2 = NaryHeap(5)
+    nh2.buildHeap([9,5,6,2,3,1,4,7,8,83])
+    print(nh2)
