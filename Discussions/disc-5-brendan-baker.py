@@ -13,7 +13,7 @@ Propose an optimal value for n and justify your proposition with an extensive di
 
 '''
 """
-Code created on Thu Oct 15 12:32:31 2020
+Original code created on Thu Oct 15 12:32:31 2020
 "Array" implementation of heap using built-in lists
 @author: jerem
 """
@@ -141,7 +141,7 @@ Relies on percUp method. The dominant term would come from the line
 
 while i // self.branching_factor > 0:
 
-This looks to be about O(log_n(t))
+This looks to be about O(log_n(t)), since it is less that linear but more than constant/
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -154,12 +154,19 @@ percDown also relies on minChild, for which the dominant term would come from
 
 for j in range(1, self.branching_factor):
 
-Which may approximate to O(n*log_n(t))
-
+Which may approximate to O(n*log_n(t)), since the second loop depends on n whereas the first loop is depends on n but is less than linear. 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Building Tree: 
 
+The dominant term is the while loop, which scales linearly time-wise with respect to the size of the tree O(n)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Overall: Insertion is faster on a larger n, since the tree is more shallow it wouldn't need to traverse as far.
+Deletion would be slower for larger ns, since there are more comparisons to be made for the percolations at every level.  
+Building the tree should be the same regardless of size. 
 
 
 '''
