@@ -126,3 +126,40 @@ if __name__ == '__main__':
     nh2 = NaryHeap(5)
     nh2.buildHeap([9,5,6,2,3,1,4,7,8,83])
     print(nh2)
+    
+    
+'''
+3. One main goal associated with trees is improved time complexity, but how is this related to the branching factor? 
+For example, are 2-ary heaps more or less efficient than 5-ary heaps?
+Propose an optimal value for n and justify your proposition with an extensive discussion and explanation.
+
+Examining the heap operations separately: 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+INSERTION
+Relies on percUp method. The dominant term would come from the line 
+
+while i // self.branching_factor > 0:
+
+This looks to be about O(log_n(t))
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+DELETION
+Relies on percDown method.  The dominant term with respect to time complexity from percDown would come from 
+
+while i*self.branching_factor - (self.branching_factor - 2) <= self.currentSize:
+
+percDown also relies on minChild, for which the dominant term would come from 
+
+for j in range(1, self.branching_factor):
+
+Which may approximate to O(n*log_n(t))
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+'''
