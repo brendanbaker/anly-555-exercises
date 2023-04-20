@@ -114,5 +114,7 @@ Results:
 5. Inferring Neural Firing Rates from Spike Trains Using Gaussian Processes
 
 Comments: Interestingly, 4 of the 5 recommendations are related to nerual networks, but the original paper is about fMRI (not neural networks).  While neural networks are brain-inspired,
-they are not 
+they are not related to neuroimaging studies in any traditional sense.  The algorithm is not good at identifying similar topic papers, but it is good at identifying similarly worded titles. 
+Another observation I have is that there are indeed other fMRI papers - with fMRI explicitly mentioned in the title - that were not recommended. It is possible that since the other words 
+in the title were not strongly associated, they were not recommended.  
 '''
